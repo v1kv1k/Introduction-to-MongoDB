@@ -1,0 +1,42 @@
+<h1 class="mt-4">Item Details</h1>
+<p class="lead mb-3">Welcome <%= name %></p>
+
+<div class="card">
+  <div class="card-header">
+    <%= item.name %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Details for <%= item.name %></h5>
+    
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>Description:</strong></p>
+        <p class="card-text"><%= item.description || 'No description available' %></p>
+      </div>
+      <div class="col-md-6">
+        <ul class="list-group">
+          <% if(item.category) { %>
+            <li class="list-group-item">
+              <strong>Category:</strong> <%= item.category %>
+            </li>
+          <% } %>
+          <% if(item.price) { %>
+            <li class="list-group-item">
+              <strong>Price:</strong> $<%= item.price.toFixed(2) %>
+            </li>
+          <% } %>
+          <li class="list-group-item">
+            <strong>Added on:</strong> <%= item.date.toLocaleDateString() %> at <%= item.date.toLocaleTimeString() %>
+          </li>
+          <li class="list-group-item">
+            <strong>ID:</strong> <%= item._id %>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="mt-4">
+      <a href="/data" class="btn btn-secondary">Back to Items</a>
+    </div>
+  </div>
+</div> 
